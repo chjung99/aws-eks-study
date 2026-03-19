@@ -178,7 +178,7 @@ graph LR
         end
         
         Admin -.->|직접 접근 차단됨| ControlPlane
-        Admin -->|Internet (SSH 등)| IGW
+        Admin -->|"Internet (SSH 등)"| IGW
         IGW --> Bastion
         Bastion -->|내부 제어 통신| ENI
         Worker -->|내부 API 통신| ENI
