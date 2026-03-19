@@ -26,7 +26,6 @@ graph LR
         end
         Worker -->|API 통신| NAT
         NAT --> IGW
-        Admin --> IGW
     end
 
     subgraph "AWS Managed EKS VPC"
@@ -34,6 +33,7 @@ graph LR
     end
 
     IGW -->|Internet| ControlPlane
+    Admin -->|Internet| ControlPlane
 ```
 
 ### 💻 핵심 인프라 코드 (`public/eks.tf`)
@@ -91,14 +91,11 @@ graph LR
     end
 
     subgraph "AWS Cloud (Customer VPC)"
-        IGW[Internet Gateway]
-        
         subgraph "Private Subnet"
             Worker[Worker Node]
             ENI["EKS Private ENI<br>(Cross-Account)"]
         end
         
-        Admin --> IGW
         Worker -->|내부 API 통신| ENI
     end
 
@@ -107,7 +104,7 @@ graph LR
         PublicAPI[Public API Endpoint]
     end
 
-    IGW -->|Internet| PublicAPI
+    Admin -->|Internet| PublicAPI
     PublicAPI --> ControlPlane
     ENI -->|AWS Backbone| ControlPlane
 ```
@@ -172,6 +169,7 @@ graph LR
 
     subgraph "AWS Cloud (Customer VPC)"
         subgraph "Public Subnet"
+            IGW[Internet Gateway]
             Bastion[Bastion Host]
         end
         subgraph "Private Subnet"
@@ -180,7 +178,8 @@ graph LR
         end
         
         Admin -.->|직접 접근 차단됨| ControlPlane
-        Admin -->|SSH 등 우회| Bastion
+        Admin -->|Internet (SSH 등)| IGW
+        IGW --> Bastion
         Bastion -->|내부 제어 통신| ENI
         Worker -->|내부 API 통신| ENI
     end
