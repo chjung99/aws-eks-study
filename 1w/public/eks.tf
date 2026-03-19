@@ -65,6 +65,7 @@ module "eks" {
     default = {
       name             = "${var.ClusterBaseName}-node-group"
       use_name_prefix  = false
+      iam_role_use_name_prefix = false
       instance_types   = ["${var.WorkerNodeInstanceType}"]
       desired_size     = var.WorkerNodeCount
       max_size         = var.WorkerNodeCount + 2
@@ -105,7 +106,7 @@ module "eks" {
   }
 
   tags = {
-    Environment = "cloudneta-lab"
+    Environment = "test-cluster"
     Terraform   = "true"
   }
 

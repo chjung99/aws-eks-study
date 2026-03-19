@@ -1,0 +1,230 @@
+[0m[1mmodule.eks.data.aws_partition.current[0]: Reading...[0m[0m
+[0m[1mmodule.eks.data.aws_iam_policy_document.assume_role_policy[0]: Reading...[0m[0m
+[0m[1mmodule.vpc.aws_vpc.this[0]: Refreshing state... [id=vpc-0af58c0fd8208f1c6][0m
+[0m[1mmodule.eks.module.kms.data.aws_caller_identity.current[0]: Reading...[0m[0m
+[0m[1mmodule.eks.aws_cloudwatch_log_group.this[0]: Refreshing state... [id=/aws/eks/test-cluster/cluster][0m
+[0m[1mmodule.eks.module.kms.data.aws_partition.current[0]: Reading...[0m[0m
+[0m[1mmodule.eks.data.aws_caller_identity.current[0]: Reading...[0m[0m
+[0m[1mmodule.eks.module.kms.data.aws_partition.current[0]: Read complete after 0s [id=aws][0m
+[0m[1mmodule.eks.data.aws_partition.current[0]: Read complete after 0s [id=aws][0m
+[0m[1mmodule.eks.data.aws_iam_policy_document.assume_role_policy[0]: Read complete after 0s [id=2830595799][0m
+[0m[1mmodule.eks.aws_iam_role.this[0]: Refreshing state... [id=test-cluster-cluster-20260319063047034900000001][0m
+[0m[1mmodule.eks.module.kms.data.aws_caller_identity.current[0]: Read complete after 0s [id=985984781526][0m
+[0m[1mmodule.eks.data.aws_caller_identity.current[0]: Read complete after 0s [id=985984781526][0m
+[0m[1mmodule.eks.data.aws_iam_session_context.current[0]: Reading...[0m[0m
+[0m[1maws_security_group.node_group_sg: Refreshing state... [id=sg-03ddfddd5a1009cb2][0m
+[0m[1mmodule.vpc.aws_default_route_table.default[0]: Refreshing state... [id=rtb-0e84ceabd30080992][0m
+[0m[1mmodule.vpc.aws_default_security_group.this[0]: Refreshing state... [id=sg-08afa5d8466a49588][0m
+[0m[1mmodule.vpc.aws_route_table.public[0]: Refreshing state... [id=rtb-01b0d3fdf1e00ef55][0m
+[0m[1mmodule.vpc.aws_internet_gateway.this[0]: Refreshing state... [id=igw-02a3b0180ae57d970][0m
+[0m[1mmodule.vpc.aws_subnet.public[0]: Refreshing state... [id=subnet-040e7f8ec1fc35a2c][0m
+[0m[1mmodule.vpc.aws_subnet.public[1]: Refreshing state... [id=subnet-03b8fc78b860fc6d6][0m
+[0m[1mmodule.eks.aws_security_group.node[0]: Refreshing state... [id=sg-0f02f0b8429e6ebf5][0m
+[0m[1mmodule.vpc.aws_subnet.public[2]: Refreshing state... [id=subnet-0710b9d9b2278221d][0m
+[0m[1mmodule.eks.data.aws_iam_session_context.current[0]: Read complete after 0s [id=arn:aws:sts::985984781526:assumed-role/EKSAdminRole/eks-session][0m
+[0m[1mmodule.eks.aws_security_group.cluster[0]: Refreshing state... [id=sg-0071b14ce5d17bebc][0m
+[0m[1mmodule.vpc.aws_route.public_internet_gateway[0]: Refreshing state... [id=r-rtb-01b0d3fdf1e00ef551080289494][0m
+[0m[1maws_security_group_rule.allow_ssh: Refreshing state... [id=sgrule-83063747][0m
+[0m[1mmodule.vpc.aws_route_table_association.public[0]: Refreshing state... [id=rtbassoc-05e1939918d3a3027][0m
+[0m[1mmodule.vpc.aws_route_table_association.public[2]: Refreshing state... [id=rtbassoc-0695128f655c3ecc7][0m
+[0m[1mmodule.vpc.aws_route_table_association.public[1]: Refreshing state... [id=rtbassoc-02778576968d7075a][0m
+[0m[1mmodule.eks.aws_security_group_rule.cluster["ingress_nodes_443"]: Refreshing state... [id=sgrule-2113756796][0m
+[0m[1mmodule.eks.aws_security_group_rule.node["egress_all"]: Refreshing state... [id=sgrule-2315804447][0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_cluster_4443_webhook"]: Refreshing state... [id=sgrule-1097462269][0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_self_coredns_tcp"]: Refreshing state... [id=sgrule-3047967186][0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_nodes_ephemeral"]: Refreshing state... [id=sgrule-3469751830][0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_cluster_8443_webhook"]: Refreshing state... [id=sgrule-2608310858][0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_cluster_kubelet"]: Refreshing state... [id=sgrule-3211114659][0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_cluster_6443_webhook"]: Refreshing state... [id=sgrule-2284557931][0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_self_coredns_udp"]: Refreshing state... [id=sgrule-301197885][0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_cluster_10251_webhook"]: Refreshing state... [id=sgrule-2334976216][0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_cluster_9443_webhook"]: Refreshing state... [id=sgrule-4292254081][0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_cluster_443"]: Refreshing state... [id=sgrule-1392766272][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].data.aws_iam_policy_document.assume_role_policy[0]: Reading...[0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].data.aws_iam_policy_document.assume_role_policy[0]: Read complete after 0s [id=2560088296][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_iam_role.this[0]: Refreshing state... [id=test-cluster-node-group-eks-node-group][0m
+[0m[1mmodule.eks.aws_iam_role_policy_attachment.this["AmazonEKSClusterPolicy"]: Refreshing state... [id=test-cluster-cluster-20260319063047034900000001/arn:aws:iam::aws:policy/AmazonEKSClusterPolicy][0m
+[0m[1mmodule.eks.module.kms.data.aws_iam_policy_document.this[0]: Reading...[0m[0m
+[0m[1mmodule.eks.module.kms.data.aws_iam_policy_document.this[0]: Read complete after 0s [id=1351781614][0m
+[0m[1mmodule.eks.module.kms.aws_kms_key.this[0]: Refreshing state... [id=fdd64ed1-45ef-4dde-8e47-4f2b5e7998a4][0m
+[0m[1mmodule.eks.module.kms.aws_kms_alias.this["cluster"]: Refreshing state... [id=alias/eks/test-cluster][0m
+[0m[1mmodule.eks.aws_iam_policy.cluster_encryption[0]: Refreshing state... [id=arn:aws:iam::985984781526:policy/test-cluster-cluster-ClusterEncryption20260319063108593200000005][0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Refreshing state... [id=test-cluster][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_iam_role_policy_attachment.this["AmazonEKS_CNI_Policy"]: Refreshing state... [id=test-cluster-node-group-eks-node-group/arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_iam_role_policy_attachment.this["AmazonEKSWorkerNodePolicy"]: Refreshing state... [id=test-cluster-node-group-eks-node-group/arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_iam_role_policy_attachment.this["AmazonEC2ContainerRegistryReadOnly"]: Refreshing state... [id=test-cluster-node-group-eks-node-group/arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly][0m
+[0m[1mmodule.eks.data.aws_eks_addon_version.this["kube-proxy"]: Reading...[0m[0m
+[0m[1mmodule.eks.aws_ec2_tag.cluster_primary_security_group["Environment"]: Refreshing state... [id=sg-01bf674e5b09bf491,Environment][0m
+[0m[1mmodule.eks.data.aws_eks_addon_version.this["vpc-cni"]: Reading...[0m[0m
+[0m[1mmodule.eks.data.aws_eks_addon_version.this["coredns"]: Reading...[0m[0m
+[0m[1mmodule.eks.aws_eks_access_entry.this["cluster_creator"]: Refreshing state... [id=test-cluster:arn:aws:iam::985984781526:role/EKSAdminRole][0m
+[0m[1mmodule.eks.aws_ec2_tag.cluster_primary_security_group["Terraform"]: Refreshing state... [id=sg-01bf674e5b09bf491,Terraform][0m
+[0m[1mmodule.eks.data.tls_certificate.this[0]: Reading...[0m[0m
+[0m[1mmodule.eks.data.tls_certificate.this[0]: Read complete after 0s [id=db89cecc3adb9ea30f9819b0e895f1b1184c090f][0m
+[0m[1mmodule.eks.data.aws_eks_addon_version.this["coredns"]: Read complete after 1s [id=coredns][0m
+[0m[1mmodule.eks.data.aws_eks_addon_version.this["vpc-cni"]: Read complete after 1s [id=vpc-cni][0m
+[0m[1mmodule.eks.data.aws_eks_addon_version.this["kube-proxy"]: Read complete after 1s [id=kube-proxy][0m
+[0m[1mmodule.eks.time_sleep.this[0]: Refreshing state... [id=2026-03-19T06:38:30Z][0m
+[0m[1mmodule.eks.aws_iam_openid_connect_provider.oidc_provider[0]: Refreshing state... [id=arn:aws:iam::985984781526:oidc-provider/oidc.eks.ap-northeast-2.amazonaws.com/id/77353F29CAF6AD214D6CFF710C1E2CAD][0m
+[0m[1mmodule.eks.aws_eks_addon.before_compute["vpc-cni"]: Refreshing state... [id=test-cluster:vpc-cni][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].data.aws_ssm_parameter.ami[0]: Reading...[0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].module.user_data.null_resource.validate_cluster_service_cidr: Refreshing state... [id=7544250925939478853][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].module.user_data.data.cloudinit_config.al2023_eks_managed_node_group[0]: Reading...[0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].module.user_data.data.cloudinit_config.al2023_eks_managed_node_group[0]: Read complete after 0s [id=2221528095][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].data.aws_ssm_parameter.ami[0]: Read complete after 0s [id=/aws/service/eks/optimized-ami/1.34/amazon-linux-2023/x86_64/standard/recommended/release_version][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_launch_template.this[0]: Refreshing state... [id=lt-0dcc373df503b5780][0m
+[0m[1mmodule.eks.aws_eks_access_policy_association.this["cluster_creator_admin"]: Refreshing state... [id=test-cluster#arn:aws:iam::985984781526:role/EKSAdminRole#arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy][0m
+[0m[1mmodule.eks.aws_iam_role_policy_attachment.cluster_encryption[0]: Refreshing state... [id=test-cluster-cluster-20260319063047034900000001/arn:aws:iam::985984781526:policy/test-cluster-cluster-ClusterEncryption20260319063108593200000005][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+  [33m~[0m update in-place[0m
+
+Terraform will perform the following actions:
+
+[1m  # module.eks.aws_eks_addon.this["coredns"][0m will be created
+[0m  [32m+[0m[0m resource "aws_eks_addon" "this" {
+      [32m+[0m[0m addon_name                  = "coredns"
+      [32m+[0m[0m addon_version               = "v1.13.2-eksbuild.3"
+      [32m+[0m[0m arn                         = (known after apply)
+      [32m+[0m[0m cluster_name                = "test-cluster"
+      [32m+[0m[0m configuration_values        = (known after apply)
+      [32m+[0m[0m created_at                  = (known after apply)
+      [32m+[0m[0m id                          = (known after apply)
+      [32m+[0m[0m modified_at                 = (known after apply)
+      [32m+[0m[0m preserve                    = true
+      [32m+[0m[0m region                      = "ap-northeast-2"
+      [32m+[0m[0m resolve_conflicts_on_create = "NONE"
+      [32m+[0m[0m resolve_conflicts_on_update = "OVERWRITE"
+      [32m+[0m[0m tags                        = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m tags_all                    = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+
+      [32m+[0m[0m timeouts {}
+    }
+
+[1m  # module.eks.aws_eks_addon.this["kube-proxy"][0m will be created
+[0m  [32m+[0m[0m resource "aws_eks_addon" "this" {
+      [32m+[0m[0m addon_name                  = "kube-proxy"
+      [32m+[0m[0m addon_version               = "v1.34.5-eksbuild.2"
+      [32m+[0m[0m arn                         = (known after apply)
+      [32m+[0m[0m cluster_name                = "test-cluster"
+      [32m+[0m[0m configuration_values        = (known after apply)
+      [32m+[0m[0m created_at                  = (known after apply)
+      [32m+[0m[0m id                          = (known after apply)
+      [32m+[0m[0m modified_at                 = (known after apply)
+      [32m+[0m[0m preserve                    = true
+      [32m+[0m[0m region                      = "ap-northeast-2"
+      [32m+[0m[0m resolve_conflicts_on_create = "NONE"
+      [32m+[0m[0m resolve_conflicts_on_update = "OVERWRITE"
+      [32m+[0m[0m tags                        = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m tags_all                    = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+
+      [32m+[0m[0m timeouts {}
+    }
+
+[1m  # module.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_eks_node_group" "this" {
+      [32m+[0m[0m ami_type               = "AL2023_x86_64_STANDARD"
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m capacity_type          = "ON_DEMAND"
+      [32m+[0m[0m cluster_name           = "test-cluster"
+      [32m+[0m[0m disk_size              = (known after apply)
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m instance_types         = [
+          [32m+[0m[0m "t3.medium",
+        ]
+      [32m+[0m[0m node_group_name        = "test-cluster-node-group"
+      [32m+[0m[0m node_group_name_prefix = (known after apply)
+      [32m+[0m[0m node_role_arn          = "arn:aws:iam::985984781526:role/test-cluster-node-group-eks-node-group"
+      [32m+[0m[0m region                 = "ap-northeast-2"
+      [32m+[0m[0m release_version        = "1.34.4-20260311"
+      [32m+[0m[0m resources              = (known after apply)
+      [32m+[0m[0m status                 = (known after apply)
+      [32m+[0m[0m subnet_ids             = [
+          [32m+[0m[0m "subnet-03b8fc78b860fc6d6",
+          [32m+[0m[0m "subnet-040e7f8ec1fc35a2c",
+          [32m+[0m[0m "subnet-0710b9d9b2278221d",
+        ]
+      [32m+[0m[0m tags                   = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Name"        = "test-cluster-node-group"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m tags_all               = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Name"        = "test-cluster-node-group"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m version                = "1.34"
+
+      [32m+[0m[0m launch_template {
+          [32m+[0m[0m id      = "lt-0dcc373df503b5780"
+          [32m+[0m[0m name    = (known after apply)
+          [32m+[0m[0m version = (known after apply)
+        }
+
+      [32m+[0m[0m scaling_config {
+          [32m+[0m[0m desired_size = 2
+          [32m+[0m[0m max_size     = 4
+          [32m+[0m[0m min_size     = 1
+        }
+
+      [32m+[0m[0m update_config {
+          [32m+[0m[0m max_unavailable_percentage = 33
+        }
+    }
+
+[1m  # module.eks.module.eks_managed_node_group["default"].aws_launch_template.this[0][0m will be updated in-place
+[0m  [33m~[0m[0m resource "aws_launch_template" "this" {
+      [33m~[0m[0m default_version         = 1 -> (known after apply)
+        id                      = "lt-0dcc373df503b5780"
+      [33m~[0m[0m key_name                = "kp-gasida" [33m->[0m[0m "chjung0319"
+      [33m~[0m[0m latest_version          = 1 -> (known after apply)
+        name                    = "default-20260319064410728000000001"
+        tags                    = {
+            "Environment" = "test-cluster"
+            "Terraform"   = "true"
+        }
+        [90m# (11 unchanged attributes hidden)[0m[0m
+
+        [90m# (4 unchanged blocks hidden)[0m[0m
+    }
+
+[1mPlan:[0m 3 to add, 1 to change, 0 to destroy.
+[0m[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_launch_template.this[0]: Modifying... [id=lt-0dcc373df503b5780][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_launch_template.this[0]: Modifications complete after 6s [id=lt-0dcc373df503b5780][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Creating...[0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [30s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [40s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [50s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [1m0s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [1m10s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [1m20s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [1m30s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [1m40s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Creation complete after 1m49s [id=test-cluster:test-cluster-node-group][0m
+[0m[1mmodule.eks.aws_eks_addon.this["coredns"]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_eks_addon.this["kube-proxy"]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_eks_addon.this["kube-proxy"]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_addon.this["coredns"]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_addon.this["coredns"]: Creation complete after 14s [id=test-cluster:coredns][0m
+[0m[1mmodule.eks.aws_eks_addon.this["kube-proxy"]: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_addon.this["kube-proxy"]: Creation complete after 24s [id=test-cluster:kube-proxy][0m
+[0m[1m[32m
+Apply complete! Resources: 3 added, 1 changed, 0 destroyed.
+[0m

@@ -1,0 +1,1438 @@
+
+[0m[1mInitializing the backend...[0m
+[0m[1mInitializing modules...[0m
+Downloading registry.terraform.io/terraform-aws-modules/eks/aws 21.15.1 for eks...
+- eks in .terraform/modules/eks
+- eks.eks_managed_node_group in .terraform/modules/eks/modules/eks-managed-node-group
+- eks.eks_managed_node_group.user_data in .terraform/modules/eks/modules/_user_data
+- eks.fargate_profile in .terraform/modules/eks/modules/fargate-profile
+Downloading registry.terraform.io/terraform-aws-modules/kms/aws 4.0.0 for eks.kms...
+- eks.kms in .terraform/modules/eks.kms
+- eks.self_managed_node_group in .terraform/modules/eks/modules/self-managed-node-group
+- eks.self_managed_node_group.user_data in .terraform/modules/eks/modules/_user_data
+Downloading registry.terraform.io/terraform-aws-modules/vpc/aws 6.6.0 for vpc...
+- vpc in .terraform/modules/vpc
+
+[0m[1mInitializing provider plugins...[0m
+- Finding hashicorp/cloudinit versions matching ">= 2.0.0"...
+- Finding hashicorp/null versions matching ">= 3.0.0"...
+- Finding hashicorp/aws versions matching ">= 6.0.0, >= 6.28.0"...
+- Finding hashicorp/time versions matching ">= 0.9.0"...
+- Finding hashicorp/tls versions matching ">= 4.0.0"...
+- Installing hashicorp/cloudinit v2.3.7...
+- Installed hashicorp/cloudinit v2.3.7 (signed by HashiCorp)
+- Installing hashicorp/null v3.2.4...
+- Installed hashicorp/null v3.2.4 (signed by HashiCorp)
+- Installing hashicorp/aws v6.37.0...
+- Installed hashicorp/aws v6.37.0 (signed by HashiCorp)
+- Installing hashicorp/time v0.13.1...
+- Installed hashicorp/time v0.13.1 (signed by HashiCorp)
+- Installing hashicorp/tls v4.2.1...
+- Installed hashicorp/tls v4.2.1 (signed by HashiCorp)
+
+Terraform has created a lock file [1m.terraform.lock.hcl[0m to record the provider
+selections it made above. Include this file in your version control repository
+so that Terraform can guarantee to make the same selections by default when
+you run "terraform init" in the future.[0m
+
+[0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+[0m[32m
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.[0m
+[0m[1mmodule.eks.data.aws_caller_identity.current[0]: Reading...[0m[0m
+[0m[1mmodule.eks.module.kms.data.aws_partition.current[0]: Reading...[0m[0m
+[0m[1mmodule.eks.data.aws_iam_policy_document.assume_role_policy[0]: Reading...[0m[0m
+[0m[1mmodule.eks.module.kms.data.aws_caller_identity.current[0]: Reading...[0m[0m
+[0m[1mmodule.eks.data.aws_partition.current[0]: Reading...[0m[0m
+[0m[1mmodule.eks.module.kms.data.aws_partition.current[0]: Read complete after 0s [id=aws][0m
+[0m[1mmodule.eks.data.aws_partition.current[0]: Read complete after 0s [id=aws][0m
+[0m[1mmodule.eks.data.aws_iam_policy_document.assume_role_policy[0]: Read complete after 0s [id=2830595799][0m
+[0m[1mmodule.eks.module.kms.data.aws_caller_identity.current[0]: Read complete after 0s [id=985984781526][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].data.aws_iam_policy_document.assume_role_policy[0]: Reading...[0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].data.aws_iam_policy_document.assume_role_policy[0]: Read complete after 0s [id=2560088296][0m
+[0m[1mmodule.eks.data.aws_caller_identity.current[0]: Read complete after 0s [id=985984781526][0m
+[0m[1mmodule.eks.data.aws_iam_session_context.current[0]: Reading...[0m[0m
+[0m[1mmodule.eks.data.aws_iam_session_context.current[0]: Read complete after 0s [id=arn:aws:sts::985984781526:assumed-role/EKSAdminRole/eks-session][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].data.aws_ssm_parameter.ami[0]: Reading...[0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].module.user_data.data.cloudinit_config.al2023_eks_managed_node_group[0]: Reading...[0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].module.user_data.data.cloudinit_config.al2023_eks_managed_node_group[0]: Read complete after 0s [id=2221528095][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].data.aws_ssm_parameter.ami[0]: Read complete after 1s [id=/aws/service/eks/optimized-ami/1.34/amazon-linux-2023/x86_64/standard/recommended/release_version][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+ [36m<=[0m read (data resources)[0m
+
+Terraform will perform the following actions:
+
+[1m  # aws_security_group.node_group_sg[0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group" "node_group_sg" {
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m description            = "Security group for EKS Node Group"
+      [32m+[0m[0m egress                 = (known after apply)
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m ingress                = (known after apply)
+      [32m+[0m[0m name                   = "test-cluster-node-group-sg"
+      [32m+[0m[0m name_prefix            = (known after apply)
+      [32m+[0m[0m owner_id               = (known after apply)
+      [32m+[0m[0m region                 = "ap-northeast-2"
+      [32m+[0m[0m revoke_rules_on_delete = false
+      [32m+[0m[0m tags                   = {
+          [32m+[0m[0m "Name" = "test-cluster-node-group-sg"
+        }
+      [32m+[0m[0m tags_all               = {
+          [32m+[0m[0m "Name" = "test-cluster-node-group-sg"
+        }
+      [32m+[0m[0m vpc_id                 = (known after apply)
+    }
+
+[1m  # aws_security_group_rule.allow_ssh[0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "allow_ssh" {
+      [32m+[0m[0m cidr_blocks              = [
+          [32m+[0m[0m "211.45.60.3/32",
+          [32m+[0m[0m "192.168.1.100/32",
+        ]
+      [32m+[0m[0m from_port                = 0
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m protocol                 = "-1"
+      [32m+[0m[0m region                   = "ap-northeast-2"
+      [32m+[0m[0m security_group_id        = (known after apply)
+      [32m+[0m[0m security_group_rule_id   = (known after apply)
+      [32m+[0m[0m self                     = false
+      [32m+[0m[0m source_security_group_id = (known after apply)
+      [32m+[0m[0m to_port                  = 0
+      [32m+[0m[0m type                     = "ingress"
+    }
+
+[1m  # module.eks.data.aws_eks_addon_version.this["coredns"][0m will be read during apply
+  # (depends on a resource or a module with changes pending)
+[0m [36m<=[0m[0m data "aws_eks_addon_version" "this" {
+      [32m+[0m[0m addon_name         = "coredns"
+      [32m+[0m[0m id                 = (known after apply)
+      [32m+[0m[0m kubernetes_version = "1.34"
+      [32m+[0m[0m most_recent        = true
+      [32m+[0m[0m region             = (known after apply)
+      [32m+[0m[0m version            = (known after apply)
+    }
+
+[1m  # module.eks.data.aws_eks_addon_version.this["kube-proxy"][0m will be read during apply
+  # (depends on a resource or a module with changes pending)
+[0m [36m<=[0m[0m data "aws_eks_addon_version" "this" {
+      [32m+[0m[0m addon_name         = "kube-proxy"
+      [32m+[0m[0m id                 = (known after apply)
+      [32m+[0m[0m kubernetes_version = "1.34"
+      [32m+[0m[0m most_recent        = true
+      [32m+[0m[0m region             = (known after apply)
+      [32m+[0m[0m version            = (known after apply)
+    }
+
+[1m  # module.eks.data.aws_eks_addon_version.this["vpc-cni"][0m will be read during apply
+  # (depends on a resource or a module with changes pending)
+[0m [36m<=[0m[0m data "aws_eks_addon_version" "this" {
+      [32m+[0m[0m addon_name         = "vpc-cni"
+      [32m+[0m[0m id                 = (known after apply)
+      [32m+[0m[0m kubernetes_version = "1.34"
+      [32m+[0m[0m most_recent        = true
+      [32m+[0m[0m region             = (known after apply)
+      [32m+[0m[0m version            = (known after apply)
+    }
+
+[1m  # module.eks.data.tls_certificate.this[0][0m will be read during apply
+  # (config refers to values not yet known)
+[0m [36m<=[0m[0m data "tls_certificate" "this" {
+      [32m+[0m[0m certificates = (known after apply)
+      [32m+[0m[0m id           = (known after apply)
+      [32m+[0m[0m url          = (known after apply)
+    }
+
+[1m  # module.eks.aws_cloudwatch_log_group.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_cloudwatch_log_group" "this" {
+      [32m+[0m[0m arn                         = (known after apply)
+      [32m+[0m[0m deletion_protection_enabled = (known after apply)
+      [32m+[0m[0m id                          = (known after apply)
+      [32m+[0m[0m log_group_class             = (known after apply)
+      [32m+[0m[0m name                        = "/aws/eks/test-cluster/cluster"
+      [32m+[0m[0m name_prefix                 = (known after apply)
+      [32m+[0m[0m region                      = "ap-northeast-2"
+      [32m+[0m[0m retention_in_days           = 90
+      [32m+[0m[0m skip_destroy                = false
+      [32m+[0m[0m tags                        = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Name"        = "/aws/eks/test-cluster/cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m tags_all                    = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Name"        = "/aws/eks/test-cluster/cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+    }
+
+[1m  # module.eks.aws_ec2_tag.cluster_primary_security_group["Environment"][0m will be created
+[0m  [32m+[0m[0m resource "aws_ec2_tag" "cluster_primary_security_group" {
+      [32m+[0m[0m id          = (known after apply)
+      [32m+[0m[0m key         = "Environment"
+      [32m+[0m[0m region      = "ap-northeast-2"
+      [32m+[0m[0m resource_id = (known after apply)
+      [32m+[0m[0m value       = "test-cluster"
+    }
+
+[1m  # module.eks.aws_ec2_tag.cluster_primary_security_group["Terraform"][0m will be created
+[0m  [32m+[0m[0m resource "aws_ec2_tag" "cluster_primary_security_group" {
+      [32m+[0m[0m id          = (known after apply)
+      [32m+[0m[0m key         = "Terraform"
+      [32m+[0m[0m region      = "ap-northeast-2"
+      [32m+[0m[0m resource_id = (known after apply)
+      [32m+[0m[0m value       = "true"
+    }
+
+[1m  # module.eks.aws_eks_access_entry.this["cluster_creator"][0m will be created
+[0m  [32m+[0m[0m resource "aws_eks_access_entry" "this" {
+      [32m+[0m[0m access_entry_arn  = (known after apply)
+      [32m+[0m[0m cluster_name      = (known after apply)
+      [32m+[0m[0m created_at        = (known after apply)
+      [32m+[0m[0m id                = (known after apply)
+      [32m+[0m[0m kubernetes_groups = (known after apply)
+      [32m+[0m[0m modified_at       = (known after apply)
+      [32m+[0m[0m principal_arn     = "arn:aws:iam::985984781526:role/EKSAdminRole"
+      [32m+[0m[0m region            = "ap-northeast-2"
+      [32m+[0m[0m tags              = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m tags_all          = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m type              = "STANDARD"
+      [32m+[0m[0m user_name         = (known after apply)
+    }
+
+[1m  # module.eks.aws_eks_access_policy_association.this["cluster_creator_admin"][0m will be created
+[0m  [32m+[0m[0m resource "aws_eks_access_policy_association" "this" {
+      [32m+[0m[0m associated_at = (known after apply)
+      [32m+[0m[0m cluster_name  = (known after apply)
+      [32m+[0m[0m id            = (known after apply)
+      [32m+[0m[0m modified_at   = (known after apply)
+      [32m+[0m[0m policy_arn    = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
+      [32m+[0m[0m principal_arn = "arn:aws:iam::985984781526:role/EKSAdminRole"
+      [32m+[0m[0m region        = "ap-northeast-2"
+
+      [32m+[0m[0m access_scope {
+          [32m+[0m[0m type = "cluster"
+        }
+    }
+
+[1m  # module.eks.aws_eks_addon.before_compute["vpc-cni"][0m will be created
+[0m  [32m+[0m[0m resource "aws_eks_addon" "before_compute" {
+      [32m+[0m[0m addon_name                  = "vpc-cni"
+      [32m+[0m[0m addon_version               = (known after apply)
+      [32m+[0m[0m arn                         = (known after apply)
+      [32m+[0m[0m cluster_name                = (known after apply)
+      [32m+[0m[0m configuration_values        = (known after apply)
+      [32m+[0m[0m created_at                  = (known after apply)
+      [32m+[0m[0m id                          = (known after apply)
+      [32m+[0m[0m modified_at                 = (known after apply)
+      [32m+[0m[0m preserve                    = true
+      [32m+[0m[0m region                      = "ap-northeast-2"
+      [32m+[0m[0m resolve_conflicts_on_create = "NONE"
+      [32m+[0m[0m resolve_conflicts_on_update = "OVERWRITE"
+      [32m+[0m[0m tags                        = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m tags_all                    = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+
+      [32m+[0m[0m timeouts {}
+    }
+
+[1m  # module.eks.aws_eks_addon.this["coredns"][0m will be created
+[0m  [32m+[0m[0m resource "aws_eks_addon" "this" {
+      [32m+[0m[0m addon_name                  = "coredns"
+      [32m+[0m[0m addon_version               = (known after apply)
+      [32m+[0m[0m arn                         = (known after apply)
+      [32m+[0m[0m cluster_name                = (known after apply)
+      [32m+[0m[0m configuration_values        = (known after apply)
+      [32m+[0m[0m created_at                  = (known after apply)
+      [32m+[0m[0m id                          = (known after apply)
+      [32m+[0m[0m modified_at                 = (known after apply)
+      [32m+[0m[0m preserve                    = true
+      [32m+[0m[0m region                      = "ap-northeast-2"
+      [32m+[0m[0m resolve_conflicts_on_create = "NONE"
+      [32m+[0m[0m resolve_conflicts_on_update = "OVERWRITE"
+      [32m+[0m[0m tags                        = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m tags_all                    = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+
+      [32m+[0m[0m timeouts {}
+    }
+
+[1m  # module.eks.aws_eks_addon.this["kube-proxy"][0m will be created
+[0m  [32m+[0m[0m resource "aws_eks_addon" "this" {
+      [32m+[0m[0m addon_name                  = "kube-proxy"
+      [32m+[0m[0m addon_version               = (known after apply)
+      [32m+[0m[0m arn                         = (known after apply)
+      [32m+[0m[0m cluster_name                = (known after apply)
+      [32m+[0m[0m configuration_values        = (known after apply)
+      [32m+[0m[0m created_at                  = (known after apply)
+      [32m+[0m[0m id                          = (known after apply)
+      [32m+[0m[0m modified_at                 = (known after apply)
+      [32m+[0m[0m preserve                    = true
+      [32m+[0m[0m region                      = "ap-northeast-2"
+      [32m+[0m[0m resolve_conflicts_on_create = "NONE"
+      [32m+[0m[0m resolve_conflicts_on_update = "OVERWRITE"
+      [32m+[0m[0m tags                        = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m tags_all                    = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+
+      [32m+[0m[0m timeouts {}
+    }
+
+[1m  # module.eks.aws_eks_cluster.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_eks_cluster" "this" {
+      [32m+[0m[0m arn                           = (known after apply)
+      [32m+[0m[0m bootstrap_self_managed_addons = false
+      [32m+[0m[0m certificate_authority         = (known after apply)
+      [32m+[0m[0m cluster_id                    = (known after apply)
+      [32m+[0m[0m created_at                    = (known after apply)
+      [32m+[0m[0m deletion_protection           = (known after apply)
+      [32m+[0m[0m endpoint                      = (known after apply)
+      [32m+[0m[0m id                            = (known after apply)
+      [32m+[0m[0m identity                      = (known after apply)
+      [32m+[0m[0m name                          = "test-cluster"
+      [32m+[0m[0m platform_version              = (known after apply)
+      [32m+[0m[0m region                        = "ap-northeast-2"
+      [32m+[0m[0m role_arn                      = (known after apply)
+      [32m+[0m[0m status                        = (known after apply)
+      [32m+[0m[0m tags                          = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m tags_all                      = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m version                       = "1.34"
+
+      [32m+[0m[0m access_config {
+          [32m+[0m[0m authentication_mode                         = "API_AND_CONFIG_MAP"
+          [32m+[0m[0m bootstrap_cluster_creator_admin_permissions = false
+        }
+
+      [32m+[0m[0m encryption_config {
+          [32m+[0m[0m resources = [
+              [32m+[0m[0m "secrets",
+            ]
+
+          [32m+[0m[0m provider {
+              [32m+[0m[0m key_arn = (known after apply)
+            }
+        }
+
+      [32m+[0m[0m kubernetes_network_config {
+          [32m+[0m[0m ip_family         = "ipv4"
+          [32m+[0m[0m service_ipv4_cidr = (known after apply)
+          [32m+[0m[0m service_ipv6_cidr = (known after apply)
+        }
+
+      [32m+[0m[0m vpc_config {
+          [32m+[0m[0m cluster_security_group_id = (known after apply)
+          [32m+[0m[0m endpoint_private_access   = true
+          [32m+[0m[0m endpoint_public_access    = true
+          [32m+[0m[0m public_access_cidrs       = [
+              [32m+[0m[0m "0.0.0.0/0",
+            ]
+          [32m+[0m[0m security_group_ids        = (known after apply)
+          [32m+[0m[0m subnet_ids                = (known after apply)
+          [32m+[0m[0m vpc_id                    = (known after apply)
+        }
+    }
+
+[1m  # module.eks.aws_iam_openid_connect_provider.oidc_provider[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_openid_connect_provider" "oidc_provider" {
+      [32m+[0m[0m arn             = (known after apply)
+      [32m+[0m[0m client_id_list  = [
+          [32m+[0m[0m "sts.amazonaws.com",
+        ]
+      [32m+[0m[0m id              = (known after apply)
+      [32m+[0m[0m tags            = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Name"        = "test-cluster-eks-irsa"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m tags_all        = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Name"        = "test-cluster-eks-irsa"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m thumbprint_list = (known after apply)
+      [32m+[0m[0m url             = (known after apply)
+    }
+
+[1m  # module.eks.aws_iam_policy.cluster_encryption[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_policy" "cluster_encryption" {
+      [32m+[0m[0m arn              = (known after apply)
+      [32m+[0m[0m attachment_count = (known after apply)
+      [32m+[0m[0m description      = "Cluster encryption policy to allow cluster role to utilize CMK provided"
+      [32m+[0m[0m id               = (known after apply)
+      [32m+[0m[0m name             = (known after apply)
+      [32m+[0m[0m name_prefix      = "test-cluster-cluster-ClusterEncryption"
+      [32m+[0m[0m path             = "/"
+      [32m+[0m[0m policy           = (known after apply)
+      [32m+[0m[0m policy_id        = (known after apply)
+      [32m+[0m[0m tags             = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m tags_all         = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+    }
+
+[1m  # module.eks.aws_iam_role.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_role" "this" {
+      [32m+[0m[0m arn                   = (known after apply)
+      [32m+[0m[0m assume_role_policy    = jsonencode(
+            {
+              [32m+[0m[0m Statement = [
+                  [32m+[0m[0m {
+                      [32m+[0m[0m Action    = [
+                          [32m+[0m[0m "sts:TagSession",
+                          [32m+[0m[0m "sts:AssumeRole",
+                        ]
+                      [32m+[0m[0m Effect    = "Allow"
+                      [32m+[0m[0m Principal = {
+                          [32m+[0m[0m Service = "eks.amazonaws.com"
+                        }
+                      [32m+[0m[0m Sid       = "EKSClusterAssumeRole"
+                    },
+                ]
+              [32m+[0m[0m Version   = "2012-10-17"
+            }
+        )
+      [32m+[0m[0m create_date           = (known after apply)
+      [32m+[0m[0m force_detach_policies = true
+      [32m+[0m[0m id                    = (known after apply)
+      [32m+[0m[0m managed_policy_arns   = (known after apply)
+      [32m+[0m[0m max_session_duration  = 3600
+      [32m+[0m[0m name                  = (known after apply)
+      [32m+[0m[0m name_prefix           = "test-cluster-cluster-"
+      [32m+[0m[0m path                  = "/"
+      [32m+[0m[0m tags                  = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m tags_all              = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m unique_id             = (known after apply)
+    }
+
+[1m  # module.eks.aws_iam_role_policy_attachment.cluster_encryption[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "cluster_encryption" {
+      [32m+[0m[0m id         = (known after apply)
+      [32m+[0m[0m policy_arn = (known after apply)
+      [32m+[0m[0m role       = (known after apply)
+    }
+
+[1m  # module.eks.aws_iam_role_policy_attachment.this["AmazonEKSClusterPolicy"][0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "this" {
+      [32m+[0m[0m id         = (known after apply)
+      [32m+[0m[0m policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+      [32m+[0m[0m role       = (known after apply)
+    }
+
+[1m  # module.eks.aws_security_group.cluster[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group" "cluster" {
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m description            = "EKS cluster security group"
+      [32m+[0m[0m egress                 = (known after apply)
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m ingress                = (known after apply)
+      [32m+[0m[0m name                   = (known after apply)
+      [32m+[0m[0m name_prefix            = "test-cluster-cluster-"
+      [32m+[0m[0m owner_id               = (known after apply)
+      [32m+[0m[0m region                 = "ap-northeast-2"
+      [32m+[0m[0m revoke_rules_on_delete = false
+      [32m+[0m[0m tags                   = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Name"        = "test-cluster-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m tags_all               = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Name"        = "test-cluster-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m vpc_id                 = (known after apply)
+    }
+
+[1m  # module.eks.aws_security_group.node[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group" "node" {
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m description            = "EKS node shared security group"
+      [32m+[0m[0m egress                 = (known after apply)
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m ingress                = (known after apply)
+      [32m+[0m[0m name                   = (known after apply)
+      [32m+[0m[0m name_prefix            = "test-cluster-node-"
+      [32m+[0m[0m owner_id               = (known after apply)
+      [32m+[0m[0m region                 = "ap-northeast-2"
+      [32m+[0m[0m revoke_rules_on_delete = false
+      [32m+[0m[0m tags                   = {
+          [32m+[0m[0m "Environment"                        = "test-cluster"
+          [32m+[0m[0m "Name"                               = "test-cluster-node"
+          [32m+[0m[0m "Terraform"                          = "true"
+          [32m+[0m[0m "kubernetes.io/cluster/test-cluster" = "owned"
+        }
+      [32m+[0m[0m tags_all               = {
+          [32m+[0m[0m "Environment"                        = "test-cluster"
+          [32m+[0m[0m "Name"                               = "test-cluster-node"
+          [32m+[0m[0m "Terraform"                          = "true"
+          [32m+[0m[0m "kubernetes.io/cluster/test-cluster" = "owned"
+        }
+      [32m+[0m[0m vpc_id                 = (known after apply)
+    }
+
+[1m  # module.eks.aws_security_group_rule.cluster["ingress_nodes_443"][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "cluster" {
+      [32m+[0m[0m description              = "Node groups to cluster API"
+      [32m+[0m[0m from_port                = 443
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m protocol                 = "tcp"
+      [32m+[0m[0m region                   = "ap-northeast-2"
+      [32m+[0m[0m security_group_id        = (known after apply)
+      [32m+[0m[0m security_group_rule_id   = (known after apply)
+      [32m+[0m[0m self                     = false
+      [32m+[0m[0m source_security_group_id = (known after apply)
+      [32m+[0m[0m to_port                  = 443
+      [32m+[0m[0m type                     = "ingress"
+    }
+
+[1m  # module.eks.aws_security_group_rule.node["egress_all"][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "node" {
+      [32m+[0m[0m cidr_blocks              = [
+          [32m+[0m[0m "0.0.0.0/0",
+        ]
+      [32m+[0m[0m description              = "Allow all egress"
+      [32m+[0m[0m from_port                = 0
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m protocol                 = "-1"
+      [32m+[0m[0m region                   = "ap-northeast-2"
+      [32m+[0m[0m security_group_id        = (known after apply)
+      [32m+[0m[0m security_group_rule_id   = (known after apply)
+      [32m+[0m[0m self                     = false
+      [32m+[0m[0m source_security_group_id = (known after apply)
+      [32m+[0m[0m to_port                  = 0
+      [32m+[0m[0m type                     = "egress"
+    }
+
+[1m  # module.eks.aws_security_group_rule.node["ingress_cluster_10251_webhook"][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "node" {
+      [32m+[0m[0m description              = "Cluster API to node 10251/tcp webhook"
+      [32m+[0m[0m from_port                = 10251
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m protocol                 = "tcp"
+      [32m+[0m[0m region                   = "ap-northeast-2"
+      [32m+[0m[0m security_group_id        = (known after apply)
+      [32m+[0m[0m security_group_rule_id   = (known after apply)
+      [32m+[0m[0m self                     = false
+      [32m+[0m[0m source_security_group_id = (known after apply)
+      [32m+[0m[0m to_port                  = 10251
+      [32m+[0m[0m type                     = "ingress"
+    }
+
+[1m  # module.eks.aws_security_group_rule.node["ingress_cluster_443"][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "node" {
+      [32m+[0m[0m description              = "Cluster API to node groups"
+      [32m+[0m[0m from_port                = 443
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m protocol                 = "tcp"
+      [32m+[0m[0m region                   = "ap-northeast-2"
+      [32m+[0m[0m security_group_id        = (known after apply)
+      [32m+[0m[0m security_group_rule_id   = (known after apply)
+      [32m+[0m[0m self                     = false
+      [32m+[0m[0m source_security_group_id = (known after apply)
+      [32m+[0m[0m to_port                  = 443
+      [32m+[0m[0m type                     = "ingress"
+    }
+
+[1m  # module.eks.aws_security_group_rule.node["ingress_cluster_4443_webhook"][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "node" {
+      [32m+[0m[0m description              = "Cluster API to node 4443/tcp webhook"
+      [32m+[0m[0m from_port                = 4443
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m protocol                 = "tcp"
+      [32m+[0m[0m region                   = "ap-northeast-2"
+      [32m+[0m[0m security_group_id        = (known after apply)
+      [32m+[0m[0m security_group_rule_id   = (known after apply)
+      [32m+[0m[0m self                     = false
+      [32m+[0m[0m source_security_group_id = (known after apply)
+      [32m+[0m[0m to_port                  = 4443
+      [32m+[0m[0m type                     = "ingress"
+    }
+
+[1m  # module.eks.aws_security_group_rule.node["ingress_cluster_6443_webhook"][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "node" {
+      [32m+[0m[0m description              = "Cluster API to node 6443/tcp webhook"
+      [32m+[0m[0m from_port                = 6443
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m protocol                 = "tcp"
+      [32m+[0m[0m region                   = "ap-northeast-2"
+      [32m+[0m[0m security_group_id        = (known after apply)
+      [32m+[0m[0m security_group_rule_id   = (known after apply)
+      [32m+[0m[0m self                     = false
+      [32m+[0m[0m source_security_group_id = (known after apply)
+      [32m+[0m[0m to_port                  = 6443
+      [32m+[0m[0m type                     = "ingress"
+    }
+
+[1m  # module.eks.aws_security_group_rule.node["ingress_cluster_8443_webhook"][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "node" {
+      [32m+[0m[0m description              = "Cluster API to node 8443/tcp webhook"
+      [32m+[0m[0m from_port                = 8443
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m protocol                 = "tcp"
+      [32m+[0m[0m region                   = "ap-northeast-2"
+      [32m+[0m[0m security_group_id        = (known after apply)
+      [32m+[0m[0m security_group_rule_id   = (known after apply)
+      [32m+[0m[0m self                     = false
+      [32m+[0m[0m source_security_group_id = (known after apply)
+      [32m+[0m[0m to_port                  = 8443
+      [32m+[0m[0m type                     = "ingress"
+    }
+
+[1m  # module.eks.aws_security_group_rule.node["ingress_cluster_9443_webhook"][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "node" {
+      [32m+[0m[0m description              = "Cluster API to node 9443/tcp webhook"
+      [32m+[0m[0m from_port                = 9443
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m protocol                 = "tcp"
+      [32m+[0m[0m region                   = "ap-northeast-2"
+      [32m+[0m[0m security_group_id        = (known after apply)
+      [32m+[0m[0m security_group_rule_id   = (known after apply)
+      [32m+[0m[0m self                     = false
+      [32m+[0m[0m source_security_group_id = (known after apply)
+      [32m+[0m[0m to_port                  = 9443
+      [32m+[0m[0m type                     = "ingress"
+    }
+
+[1m  # module.eks.aws_security_group_rule.node["ingress_cluster_kubelet"][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "node" {
+      [32m+[0m[0m description              = "Cluster API to node kubelets"
+      [32m+[0m[0m from_port                = 10250
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m protocol                 = "tcp"
+      [32m+[0m[0m region                   = "ap-northeast-2"
+      [32m+[0m[0m security_group_id        = (known after apply)
+      [32m+[0m[0m security_group_rule_id   = (known after apply)
+      [32m+[0m[0m self                     = false
+      [32m+[0m[0m source_security_group_id = (known after apply)
+      [32m+[0m[0m to_port                  = 10250
+      [32m+[0m[0m type                     = "ingress"
+    }
+
+[1m  # module.eks.aws_security_group_rule.node["ingress_nodes_ephemeral"][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "node" {
+      [32m+[0m[0m description              = "Node to node ingress on ephemeral ports"
+      [32m+[0m[0m from_port                = 1025
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m protocol                 = "tcp"
+      [32m+[0m[0m region                   = "ap-northeast-2"
+      [32m+[0m[0m security_group_id        = (known after apply)
+      [32m+[0m[0m security_group_rule_id   = (known after apply)
+      [32m+[0m[0m self                     = true
+      [32m+[0m[0m source_security_group_id = (known after apply)
+      [32m+[0m[0m to_port                  = 65535
+      [32m+[0m[0m type                     = "ingress"
+    }
+
+[1m  # module.eks.aws_security_group_rule.node["ingress_self_coredns_tcp"][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "node" {
+      [32m+[0m[0m description              = "Node to node CoreDNS"
+      [32m+[0m[0m from_port                = 53
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m protocol                 = "tcp"
+      [32m+[0m[0m region                   = "ap-northeast-2"
+      [32m+[0m[0m security_group_id        = (known after apply)
+      [32m+[0m[0m security_group_rule_id   = (known after apply)
+      [32m+[0m[0m self                     = true
+      [32m+[0m[0m source_security_group_id = (known after apply)
+      [32m+[0m[0m to_port                  = 53
+      [32m+[0m[0m type                     = "ingress"
+    }
+
+[1m  # module.eks.aws_security_group_rule.node["ingress_self_coredns_udp"][0m will be created
+[0m  [32m+[0m[0m resource "aws_security_group_rule" "node" {
+      [32m+[0m[0m description              = "Node to node CoreDNS UDP"
+      [32m+[0m[0m from_port                = 53
+      [32m+[0m[0m id                       = (known after apply)
+      [32m+[0m[0m protocol                 = "udp"
+      [32m+[0m[0m region                   = "ap-northeast-2"
+      [32m+[0m[0m security_group_id        = (known after apply)
+      [32m+[0m[0m security_group_rule_id   = (known after apply)
+      [32m+[0m[0m self                     = true
+      [32m+[0m[0m source_security_group_id = (known after apply)
+      [32m+[0m[0m to_port                  = 53
+      [32m+[0m[0m type                     = "ingress"
+    }
+
+[1m  # module.eks.time_sleep.this[0][0m will be created
+[0m  [32m+[0m[0m resource "time_sleep" "this" {
+      [32m+[0m[0m create_duration = "30s"
+      [32m+[0m[0m id              = (known after apply)
+      [32m+[0m[0m triggers        = {
+          [32m+[0m[0m "certificate_authority_data" = (known after apply)
+          [32m+[0m[0m "endpoint"                   = (known after apply)
+          [32m+[0m[0m "kubernetes_version"         = "1.34"
+          [32m+[0m[0m "name"                       = (known after apply)
+          [32m+[0m[0m "service_cidr"               = (known after apply)
+        }
+    }
+
+[1m  # module.vpc.aws_default_route_table.default[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_default_route_table" "default" {
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m default_route_table_id = (known after apply)
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m owner_id               = (known after apply)
+      [32m+[0m[0m region                 = "ap-northeast-2"
+      [32m+[0m[0m route                  = (known after apply)
+      [32m+[0m[0m tags                   = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Name"        = "test-cluster-VPC-default"
+        }
+      [32m+[0m[0m tags_all               = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Name"        = "test-cluster-VPC-default"
+        }
+      [32m+[0m[0m vpc_id                 = (known after apply)
+
+      [32m+[0m[0m timeouts {
+          [32m+[0m[0m create = "5m"
+          [32m+[0m[0m update = "5m"
+        }
+    }
+
+[1m  # module.vpc.aws_default_security_group.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_default_security_group" "this" {
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m description            = (known after apply)
+      [32m+[0m[0m egress                 = (known after apply)
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m ingress                = (known after apply)
+      [32m+[0m[0m name                   = (known after apply)
+      [32m+[0m[0m name_prefix            = (known after apply)
+      [32m+[0m[0m owner_id               = (known after apply)
+      [32m+[0m[0m region                 = "ap-northeast-2"
+      [32m+[0m[0m revoke_rules_on_delete = false
+      [32m+[0m[0m tags                   = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Name"        = "test-cluster-VPC-default"
+        }
+      [32m+[0m[0m tags_all               = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Name"        = "test-cluster-VPC-default"
+        }
+      [32m+[0m[0m vpc_id                 = (known after apply)
+    }
+
+[1m  # module.vpc.aws_internet_gateway.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_internet_gateway" "this" {
+      [32m+[0m[0m arn      = (known after apply)
+      [32m+[0m[0m id       = (known after apply)
+      [32m+[0m[0m owner_id = (known after apply)
+      [32m+[0m[0m region   = "ap-northeast-2"
+      [32m+[0m[0m tags     = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Name"        = "test-cluster-IGW"
+        }
+      [32m+[0m[0m tags_all = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Name"        = "test-cluster-IGW"
+        }
+      [32m+[0m[0m vpc_id   = (known after apply)
+    }
+
+[1m  # module.vpc.aws_route.public_internet_gateway[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_route" "public_internet_gateway" {
+      [32m+[0m[0m destination_cidr_block = "0.0.0.0/0"
+      [32m+[0m[0m gateway_id             = (known after apply)
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m instance_id            = (known after apply)
+      [32m+[0m[0m instance_owner_id      = (known after apply)
+      [32m+[0m[0m network_interface_id   = (known after apply)
+      [32m+[0m[0m origin                 = (known after apply)
+      [32m+[0m[0m region                 = "ap-northeast-2"
+      [32m+[0m[0m route_table_id         = (known after apply)
+      [32m+[0m[0m state                  = (known after apply)
+
+      [32m+[0m[0m timeouts {
+          [32m+[0m[0m create = "5m"
+        }
+    }
+
+[1m  # module.vpc.aws_route_table.public[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table" "public" {
+      [32m+[0m[0m arn              = (known after apply)
+      [32m+[0m[0m id               = (known after apply)
+      [32m+[0m[0m owner_id         = (known after apply)
+      [32m+[0m[0m propagating_vgws = (known after apply)
+      [32m+[0m[0m region           = "ap-northeast-2"
+      [32m+[0m[0m route            = (known after apply)
+      [32m+[0m[0m tags             = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Name"        = "test-cluster-VPC-public"
+        }
+      [32m+[0m[0m tags_all         = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Name"        = "test-cluster-VPC-public"
+        }
+      [32m+[0m[0m vpc_id           = (known after apply)
+    }
+
+[1m  # module.vpc.aws_route_table_association.public[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table_association" "public" {
+      [32m+[0m[0m id             = (known after apply)
+      [32m+[0m[0m region         = "ap-northeast-2"
+      [32m+[0m[0m route_table_id = (known after apply)
+      [32m+[0m[0m subnet_id      = (known after apply)
+    }
+
+[1m  # module.vpc.aws_route_table_association.public[1][0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table_association" "public" {
+      [32m+[0m[0m id             = (known after apply)
+      [32m+[0m[0m region         = "ap-northeast-2"
+      [32m+[0m[0m route_table_id = (known after apply)
+      [32m+[0m[0m subnet_id      = (known after apply)
+    }
+
+[1m  # module.vpc.aws_route_table_association.public[2][0m will be created
+[0m  [32m+[0m[0m resource "aws_route_table_association" "public" {
+      [32m+[0m[0m id             = (known after apply)
+      [32m+[0m[0m region         = "ap-northeast-2"
+      [32m+[0m[0m route_table_id = (known after apply)
+      [32m+[0m[0m subnet_id      = (known after apply)
+    }
+
+[1m  # module.vpc.aws_subnet.public[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_subnet" "public" {
+      [32m+[0m[0m arn                                            = (known after apply)
+      [32m+[0m[0m assign_ipv6_address_on_creation                = false
+      [32m+[0m[0m availability_zone                              = "ap-northeast-2a"
+      [32m+[0m[0m availability_zone_id                           = (known after apply)
+      [32m+[0m[0m cidr_block                                     = "192.168.1.0/24"
+      [32m+[0m[0m enable_dns64                                   = false
+      [32m+[0m[0m enable_resource_name_dns_a_record_on_launch    = false
+      [32m+[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false
+      [32m+[0m[0m id                                             = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block                                = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_association_id                 = (known after apply)
+      [32m+[0m[0m ipv6_native                                    = false
+      [32m+[0m[0m map_public_ip_on_launch                        = true
+      [32m+[0m[0m owner_id                                       = (known after apply)
+      [32m+[0m[0m private_dns_hostname_type_on_launch            = (known after apply)
+      [32m+[0m[0m region                                         = "ap-northeast-2"
+      [32m+[0m[0m tags                                           = {
+          [32m+[0m[0m "Environment"            = "test-cluster"
+          [32m+[0m[0m "Name"                   = "test-cluster-PublicSubnet"
+          [32m+[0m[0m "kubernetes.io/role/elb" = "1"
+        }
+      [32m+[0m[0m tags_all                                       = {
+          [32m+[0m[0m "Environment"            = "test-cluster"
+          [32m+[0m[0m "Name"                   = "test-cluster-PublicSubnet"
+          [32m+[0m[0m "kubernetes.io/role/elb" = "1"
+        }
+      [32m+[0m[0m vpc_id                                         = (known after apply)
+    }
+
+[1m  # module.vpc.aws_subnet.public[1][0m will be created
+[0m  [32m+[0m[0m resource "aws_subnet" "public" {
+      [32m+[0m[0m arn                                            = (known after apply)
+      [32m+[0m[0m assign_ipv6_address_on_creation                = false
+      [32m+[0m[0m availability_zone                              = "ap-northeast-2b"
+      [32m+[0m[0m availability_zone_id                           = (known after apply)
+      [32m+[0m[0m cidr_block                                     = "192.168.2.0/24"
+      [32m+[0m[0m enable_dns64                                   = false
+      [32m+[0m[0m enable_resource_name_dns_a_record_on_launch    = false
+      [32m+[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false
+      [32m+[0m[0m id                                             = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block                                = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_association_id                 = (known after apply)
+      [32m+[0m[0m ipv6_native                                    = false
+      [32m+[0m[0m map_public_ip_on_launch                        = true
+      [32m+[0m[0m owner_id                                       = (known after apply)
+      [32m+[0m[0m private_dns_hostname_type_on_launch            = (known after apply)
+      [32m+[0m[0m region                                         = "ap-northeast-2"
+      [32m+[0m[0m tags                                           = {
+          [32m+[0m[0m "Environment"            = "test-cluster"
+          [32m+[0m[0m "Name"                   = "test-cluster-PublicSubnet"
+          [32m+[0m[0m "kubernetes.io/role/elb" = "1"
+        }
+      [32m+[0m[0m tags_all                                       = {
+          [32m+[0m[0m "Environment"            = "test-cluster"
+          [32m+[0m[0m "Name"                   = "test-cluster-PublicSubnet"
+          [32m+[0m[0m "kubernetes.io/role/elb" = "1"
+        }
+      [32m+[0m[0m vpc_id                                         = (known after apply)
+    }
+
+[1m  # module.vpc.aws_subnet.public[2][0m will be created
+[0m  [32m+[0m[0m resource "aws_subnet" "public" {
+      [32m+[0m[0m arn                                            = (known after apply)
+      [32m+[0m[0m assign_ipv6_address_on_creation                = false
+      [32m+[0m[0m availability_zone                              = "ap-northeast-2c"
+      [32m+[0m[0m availability_zone_id                           = (known after apply)
+      [32m+[0m[0m cidr_block                                     = "192.168.3.0/24"
+      [32m+[0m[0m enable_dns64                                   = false
+      [32m+[0m[0m enable_resource_name_dns_a_record_on_launch    = false
+      [32m+[0m[0m enable_resource_name_dns_aaaa_record_on_launch = false
+      [32m+[0m[0m id                                             = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block                                = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_association_id                 = (known after apply)
+      [32m+[0m[0m ipv6_native                                    = false
+      [32m+[0m[0m map_public_ip_on_launch                        = true
+      [32m+[0m[0m owner_id                                       = (known after apply)
+      [32m+[0m[0m private_dns_hostname_type_on_launch            = (known after apply)
+      [32m+[0m[0m region                                         = "ap-northeast-2"
+      [32m+[0m[0m tags                                           = {
+          [32m+[0m[0m "Environment"            = "test-cluster"
+          [32m+[0m[0m "Name"                   = "test-cluster-PublicSubnet"
+          [32m+[0m[0m "kubernetes.io/role/elb" = "1"
+        }
+      [32m+[0m[0m tags_all                                       = {
+          [32m+[0m[0m "Environment"            = "test-cluster"
+          [32m+[0m[0m "Name"                   = "test-cluster-PublicSubnet"
+          [32m+[0m[0m "kubernetes.io/role/elb" = "1"
+        }
+      [32m+[0m[0m vpc_id                                         = (known after apply)
+    }
+
+[1m  # module.vpc.aws_vpc.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_vpc" "this" {
+      [32m+[0m[0m arn                                  = (known after apply)
+      [32m+[0m[0m cidr_block                           = "192.168.0.0/16"
+      [32m+[0m[0m default_network_acl_id               = (known after apply)
+      [32m+[0m[0m default_route_table_id               = (known after apply)
+      [32m+[0m[0m default_security_group_id            = (known after apply)
+      [32m+[0m[0m dhcp_options_id                      = (known after apply)
+      [32m+[0m[0m enable_dns_hostnames                 = true
+      [32m+[0m[0m enable_dns_support                   = true
+      [32m+[0m[0m enable_network_address_usage_metrics = (known after apply)
+      [32m+[0m[0m id                                   = (known after apply)
+      [32m+[0m[0m instance_tenancy                     = "default"
+      [32m+[0m[0m ipv6_association_id                  = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block                      = (known after apply)
+      [32m+[0m[0m ipv6_cidr_block_network_border_group = (known after apply)
+      [32m+[0m[0m main_route_table_id                  = (known after apply)
+      [32m+[0m[0m owner_id                             = (known after apply)
+      [32m+[0m[0m region                               = "ap-northeast-2"
+      [32m+[0m[0m tags                                 = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Name"        = "test-cluster-VPC"
+        }
+      [32m+[0m[0m tags_all                             = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Name"        = "test-cluster-VPC"
+        }
+    }
+
+[1m  # module.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_eks_node_group" "this" {
+      [32m+[0m[0m ami_type               = "AL2023_x86_64_STANDARD"
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m capacity_type          = "ON_DEMAND"
+      [32m+[0m[0m cluster_name           = (known after apply)
+      [32m+[0m[0m disk_size              = (known after apply)
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m instance_types         = [
+          [32m+[0m[0m "t3.medium",
+        ]
+      [32m+[0m[0m node_group_name        = "test-cluster-node-group"
+      [32m+[0m[0m node_group_name_prefix = (known after apply)
+      [32m+[0m[0m node_role_arn          = (known after apply)
+      [32m+[0m[0m region                 = "ap-northeast-2"
+      [32m+[0m[0m release_version        = "1.34.4-20260311"
+      [32m+[0m[0m resources              = (known after apply)
+      [32m+[0m[0m status                 = (known after apply)
+      [32m+[0m[0m subnet_ids             = (known after apply)
+      [32m+[0m[0m tags                   = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Name"        = "test-cluster-node-group"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m tags_all               = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Name"        = "test-cluster-node-group"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m version                = "1.34"
+
+      [32m+[0m[0m launch_template {
+          [32m+[0m[0m id      = (known after apply)
+          [32m+[0m[0m name    = (known after apply)
+          [32m+[0m[0m version = (known after apply)
+        }
+
+      [32m+[0m[0m scaling_config {
+          [32m+[0m[0m desired_size = 2
+          [32m+[0m[0m max_size     = 4
+          [32m+[0m[0m min_size     = 1
+        }
+
+      [32m+[0m[0m update_config {
+          [32m+[0m[0m max_unavailable_percentage = 33
+        }
+    }
+
+[1m  # module.eks.module.eks_managed_node_group["default"].aws_iam_role.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_role" "this" {
+      [32m+[0m[0m arn                   = (known after apply)
+      [32m+[0m[0m assume_role_policy    = jsonencode(
+            {
+              [32m+[0m[0m Statement = [
+                  [32m+[0m[0m {
+                      [32m+[0m[0m Action    = "sts:AssumeRole"
+                      [32m+[0m[0m Effect    = "Allow"
+                      [32m+[0m[0m Principal = {
+                          [32m+[0m[0m Service = "ec2.amazonaws.com"
+                        }
+                      [32m+[0m[0m Sid       = "EKSNodeAssumeRole"
+                    },
+                ]
+              [32m+[0m[0m Version   = "2012-10-17"
+            }
+        )
+      [32m+[0m[0m create_date           = (known after apply)
+      [32m+[0m[0m description           = "EKS managed node group IAM role"
+      [32m+[0m[0m force_detach_policies = true
+      [32m+[0m[0m id                    = (known after apply)
+      [32m+[0m[0m managed_policy_arns   = (known after apply)
+      [32m+[0m[0m max_session_duration  = 3600
+      [32m+[0m[0m name                  = "test-cluster-node-group-eks-node-group"
+      [32m+[0m[0m name_prefix           = (known after apply)
+      [32m+[0m[0m path                  = "/"
+      [32m+[0m[0m tags                  = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m tags_all              = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m unique_id             = (known after apply)
+    }
+
+[1m  # module.eks.module.eks_managed_node_group["default"].aws_iam_role_policy_attachment.this["AmazonEC2ContainerRegistryReadOnly"][0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "this" {
+      [32m+[0m[0m id         = (known after apply)
+      [32m+[0m[0m policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+      [32m+[0m[0m role       = "test-cluster-node-group-eks-node-group"
+    }
+
+[1m  # module.eks.module.eks_managed_node_group["default"].aws_iam_role_policy_attachment.this["AmazonEKSWorkerNodePolicy"][0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "this" {
+      [32m+[0m[0m id         = (known after apply)
+      [32m+[0m[0m policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+      [32m+[0m[0m role       = "test-cluster-node-group-eks-node-group"
+    }
+
+[1m  # module.eks.module.eks_managed_node_group["default"].aws_iam_role_policy_attachment.this["AmazonEKS_CNI_Policy"][0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "this" {
+      [32m+[0m[0m id         = (known after apply)
+      [32m+[0m[0m policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
+      [32m+[0m[0m role       = "test-cluster-node-group-eks-node-group"
+    }
+
+[1m  # module.eks.module.eks_managed_node_group["default"].aws_launch_template.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_launch_template" "this" {
+      [32m+[0m[0m arn                    = (known after apply)
+      [32m+[0m[0m default_version        = (known after apply)
+      [32m+[0m[0m description            = "Custom launch template for test-cluster-node-group EKS managed node group"
+      [32m+[0m[0m id                     = (known after apply)
+      [32m+[0m[0m key_name               = "chjung0319"
+      [32m+[0m[0m latest_version         = (known after apply)
+      [32m+[0m[0m name                   = (known after apply)
+      [32m+[0m[0m name_prefix            = "default-"
+      [32m+[0m[0m region                 = "ap-northeast-2"
+      [32m+[0m[0m tags                   = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m tags_all               = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m update_default_version = true
+      [32m+[0m[0m user_data              = "Q29udGVudC1UeXBlOiBtdWx0aXBhcnQvbWl4ZWQ7IGJvdW5kYXJ5PSJNSU1FQk9VTkRBUlkiCk1JTUUtVmVyc2lvbjogMS4wDQoNCi0tTUlNRUJPVU5EQVJZDQpDb250ZW50LVRyYW5zZmVyLUVuY29kaW5nOiA3Yml0DQpDb250ZW50LVR5cGU6IHRleHQveC1zaGVsbHNjcmlwdA0KTWltZS1WZXJzaW9uOiAxLjANCg0KIyEvYmluL2Jhc2gKZWNobyAiU3RhcnRpbmcgY3VzdG9tIGluaXRpYWxpemF0aW9uLi4uIgpkbmYgdXBkYXRlIC15CmRuZiBpbnN0YWxsIC15IHRyZWUgYmluZC11dGlscwplY2hvICJDdXN0b20gaW5pdGlhbGl6YXRpb24gY29tcGxldGVkLiIKDQotLU1JTUVCT1VOREFSWS0tDQo="
+      [32m+[0m[0m vpc_security_group_ids = (known after apply)
+
+      [32m+[0m[0m metadata_options {
+          [32m+[0m[0m http_endpoint               = "enabled"
+          [32m+[0m[0m http_protocol_ipv6          = (known after apply)
+          [32m+[0m[0m http_put_response_hop_limit = 1
+          [32m+[0m[0m http_tokens                 = "required"
+          [32m+[0m[0m instance_metadata_tags      = (known after apply)
+        }
+
+      [32m+[0m[0m tag_specifications {
+          [32m+[0m[0m resource_type = "instance"
+          [32m+[0m[0m tags          = {
+              [32m+[0m[0m "Environment" = "test-cluster"
+              [32m+[0m[0m "Name"        = "test-cluster-node-group"
+              [32m+[0m[0m "Terraform"   = "true"
+            }
+        }
+      [32m+[0m[0m tag_specifications {
+          [32m+[0m[0m resource_type = "network-interface"
+          [32m+[0m[0m tags          = {
+              [32m+[0m[0m "Environment" = "test-cluster"
+              [32m+[0m[0m "Name"        = "test-cluster-node-group"
+              [32m+[0m[0m "Terraform"   = "true"
+            }
+        }
+      [32m+[0m[0m tag_specifications {
+          [32m+[0m[0m resource_type = "volume"
+          [32m+[0m[0m tags          = {
+              [32m+[0m[0m "Environment" = "test-cluster"
+              [32m+[0m[0m "Name"        = "test-cluster-node-group"
+              [32m+[0m[0m "Terraform"   = "true"
+            }
+        }
+    }
+
+[1m  # module.eks.module.kms.data.aws_iam_policy_document.this[0][0m will be read during apply
+  # (config refers to values not yet known)
+[0m [36m<=[0m[0m data "aws_iam_policy_document" "this" {
+      [32m+[0m[0m id                        = (known after apply)
+      [32m+[0m[0m json                      = (known after apply)
+      [32m+[0m[0m minified_json             = (known after apply)
+      [32m+[0m[0m override_policy_documents = []
+      [32m+[0m[0m source_policy_documents   = []
+
+      [32m+[0m[0m statement {
+          [32m+[0m[0m actions   = [
+              [32m+[0m[0m "kms:*",
+            ]
+          [32m+[0m[0m resources = [
+              [32m+[0m[0m "*",
+            ]
+          [32m+[0m[0m sid       = "Default"
+
+          [32m+[0m[0m principals {
+              [32m+[0m[0m identifiers = [
+                  [32m+[0m[0m "arn:aws:iam::985984781526:root",
+                ]
+              [32m+[0m[0m type        = "AWS"
+            }
+        }
+      [32m+[0m[0m statement {
+          [32m+[0m[0m actions   = [
+              [32m+[0m[0m "kms:CancelKeyDeletion",
+              [32m+[0m[0m "kms:Create*",
+              [32m+[0m[0m "kms:Delete*",
+              [32m+[0m[0m "kms:Describe*",
+              [32m+[0m[0m "kms:Disable*",
+              [32m+[0m[0m "kms:Enable*",
+              [32m+[0m[0m "kms:Get*",
+              [32m+[0m[0m "kms:ImportKeyMaterial",
+              [32m+[0m[0m "kms:List*",
+              [32m+[0m[0m "kms:Put*",
+              [32m+[0m[0m "kms:ReplicateKey",
+              [32m+[0m[0m "kms:Revoke*",
+              [32m+[0m[0m "kms:ScheduleKeyDeletion",
+              [32m+[0m[0m "kms:TagResource",
+              [32m+[0m[0m "kms:UntagResource",
+              [32m+[0m[0m "kms:Update*",
+            ]
+          [32m+[0m[0m resources = [
+              [32m+[0m[0m "*",
+            ]
+          [32m+[0m[0m sid       = "KeyAdministration"
+
+          [32m+[0m[0m principals {
+              [32m+[0m[0m identifiers = [
+                  [32m+[0m[0m "arn:aws:iam::985984781526:role/EKSAdminRole",
+                ]
+              [32m+[0m[0m type        = "AWS"
+            }
+        }
+      [32m+[0m[0m statement {
+          [32m+[0m[0m actions   = [
+              [32m+[0m[0m "kms:Decrypt",
+              [32m+[0m[0m "kms:DescribeKey",
+              [32m+[0m[0m "kms:Encrypt",
+              [32m+[0m[0m "kms:GenerateDataKey*",
+              [32m+[0m[0m "kms:ReEncrypt*",
+            ]
+          [32m+[0m[0m resources = [
+              [32m+[0m[0m "*",
+            ]
+          [32m+[0m[0m sid       = "KeyUsage"
+
+          [32m+[0m[0m principals {
+              [32m+[0m[0m identifiers = [
+                  [32m+[0m[0m (known after apply),
+                ]
+              [32m+[0m[0m type        = "AWS"
+            }
+        }
+    }
+
+[1m  # module.eks.module.kms.aws_kms_alias.this["cluster"][0m will be created
+[0m  [32m+[0m[0m resource "aws_kms_alias" "this" {
+      [32m+[0m[0m arn            = (known after apply)
+      [32m+[0m[0m id             = (known after apply)
+      [32m+[0m[0m name           = "alias/eks/test-cluster"
+      [32m+[0m[0m name_prefix    = (known after apply)
+      [32m+[0m[0m region         = "ap-northeast-2"
+      [32m+[0m[0m target_key_arn = (known after apply)
+      [32m+[0m[0m target_key_id  = (known after apply)
+    }
+
+[1m  # module.eks.module.kms.aws_kms_key.this[0][0m will be created
+[0m  [32m+[0m[0m resource "aws_kms_key" "this" {
+      [32m+[0m[0m arn                                = (known after apply)
+      [32m+[0m[0m bypass_policy_lockout_safety_check = false
+      [32m+[0m[0m customer_master_key_spec           = "SYMMETRIC_DEFAULT"
+      [32m+[0m[0m description                        = "test-cluster cluster encryption key"
+      [32m+[0m[0m enable_key_rotation                = true
+      [32m+[0m[0m id                                 = (known after apply)
+      [32m+[0m[0m is_enabled                         = true
+      [32m+[0m[0m key_id                             = (known after apply)
+      [32m+[0m[0m key_usage                          = "ENCRYPT_DECRYPT"
+      [32m+[0m[0m multi_region                       = false
+      [32m+[0m[0m policy                             = (known after apply)
+      [32m+[0m[0m region                             = "ap-northeast-2"
+      [32m+[0m[0m rotation_period_in_days            = (known after apply)
+      [32m+[0m[0m tags                               = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+      [32m+[0m[0m tags_all                           = {
+          [32m+[0m[0m "Environment" = "test-cluster"
+          [32m+[0m[0m "Terraform"   = "true"
+        }
+    }
+
+[1m  # module.eks.module.eks_managed_node_group["default"].module.user_data.null_resource.validate_cluster_service_cidr[0m will be created
+[0m  [32m+[0m[0m resource "null_resource" "validate_cluster_service_cidr" {
+      [32m+[0m[0m id = (known after apply)
+    }
+
+[1mPlan:[0m 52 to add, 0 to change, 0 to destroy.
+[0m[0m[1mmodule.eks.aws_cloudwatch_log_group.this[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_vpc.this[0]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_iam_role.this[0]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_cloudwatch_log_group.this[0]: Creation complete after 0s [id=/aws/eks/test-cluster/cluster][0m
+[0m[1mmodule.eks.aws_iam_role.this[0]: Creation complete after 1s [id=test-cluster-cluster-20260319071719767400000001][0m
+[0m[1mmodule.eks.aws_iam_role_policy_attachment.this["AmazonEKSClusterPolicy"]: Creating...[0m[0m
+[0m[1mmodule.eks.module.kms.data.aws_iam_policy_document.this[0]: Reading...[0m[0m
+[0m[1mmodule.eks.module.kms.data.aws_iam_policy_document.this[0]: Read complete after 0s [id=3730960950][0m
+[0m[1mmodule.eks.module.kms.aws_kms_key.this[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_vpc.this[0]: Creation complete after 2s [id=vpc-003a00e1b8b8c9914][0m
+[0m[1mmodule.vpc.aws_internet_gateway.this[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_route_table.public[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_default_route_table.default[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_default_security_group.this[0]: Creating...[0m[0m
+[0m[1maws_security_group.node_group_sg: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_subnet.public[1]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_subnet.public[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_subnet.public[2]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_iam_role_policy_attachment.this["AmazonEKSClusterPolicy"]: Creation complete after 1s [id=test-cluster-cluster-20260319071719767400000001/arn:aws:iam::aws:policy/AmazonEKSClusterPolicy][0m
+[0m[1mmodule.eks.aws_security_group.cluster[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_default_route_table.default[0]: Creation complete after 0s [id=rtb-0fa1b61c6a7fac00b][0m
+[0m[1mmodule.eks.aws_security_group.node[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_internet_gateway.this[0]: Creation complete after 0s [id=igw-0781bb10d5ccece71][0m
+[0m[1mmodule.vpc.aws_route_table.public[0]: Creation complete after 0s [id=rtb-066cb0360022a878b][0m
+[0m[1mmodule.vpc.aws_route.public_internet_gateway[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_route.public_internet_gateway[0]: Creation complete after 1s [id=r-rtb-066cb0360022a878b1080289494][0m
+[0m[1mmodule.vpc.aws_default_security_group.this[0]: Creation complete after 1s [id=sg-08a0a79f46b453095][0m
+[0m[1mmodule.eks.aws_security_group.cluster[0]: Creation complete after 1s [id=sg-0725ea75f4b8c232c][0m
+[0m[1maws_security_group.node_group_sg: Creation complete after 1s [id=sg-06a5cd2fda9193f52][0m
+[0m[1maws_security_group_rule.allow_ssh: Creating...[0m[0m
+[0m[1mmodule.eks.aws_security_group.node[0]: Creation complete after 2s [id=sg-0e8e4e634c403b1a5][0m
+[0m[1mmodule.eks.aws_security_group_rule.node["egress_all"]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_cluster_443"]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_cluster_10251_webhook"]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_cluster_kubelet"]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_self_coredns_tcp"]: Creating...[0m[0m
+[0m[1maws_security_group_rule.allow_ssh: Creation complete after 1s [id=sgrule-4063249565][0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_cluster_8443_webhook"]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_cluster_443"]: Creation complete after 0s [id=sgrule-1590387394][0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_cluster_4443_webhook"]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_security_group_rule.node["egress_all"]: Creation complete after 1s [id=sgrule-1953813256][0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_cluster_6443_webhook"]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_cluster_10251_webhook"]: Creation complete after 1s [id=sgrule-3522759548][0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_nodes_ephemeral"]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_cluster_kubelet"]: Creation complete after 2s [id=sgrule-3853540103][0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_cluster_9443_webhook"]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_self_coredns_tcp"]: Creation complete after 3s [id=sgrule-2539475573][0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_self_coredns_udp"]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_cluster_8443_webhook"]: Creation complete after 3s [id=sgrule-3070817672][0m
+[0m[1mmodule.eks.aws_security_group_rule.cluster["ingress_nodes_443"]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_cluster_4443_webhook"]: Creation complete after 4s [id=sgrule-1830202943][0m
+[0m[1mmodule.eks.aws_security_group_rule.cluster["ingress_nodes_443"]: Creation complete after 1s [id=sgrule-2926161105][0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_cluster_6443_webhook"]: Creation complete after 3s [id=sgrule-2757020073][0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_nodes_ephemeral"]: Creation complete after 4s [id=sgrule-3569533801][0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_cluster_9443_webhook"]: Creation complete after 4s [id=sgrule-3551118915][0m
+[0m[1mmodule.eks.aws_security_group_rule.node["ingress_self_coredns_udp"]: Creation complete after 3s [id=sgrule-855830938][0m
+[0m[1mmodule.eks.module.kms.aws_kms_key.this[0]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_subnet.public[1]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_subnet.public[0]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_subnet.public[2]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.vpc.aws_subnet.public[2]: Creation complete after 11s [id=subnet-0f1b5837eae23fd71][0m
+[0m[1mmodule.vpc.aws_subnet.public[0]: Creation complete after 11s [id=subnet-00468a93111e9a19e][0m
+[0m[1mmodule.vpc.aws_subnet.public[1]: Creation complete after 14s [id=subnet-04d7e0ac1dda91c96][0m
+[0m[1mmodule.vpc.aws_route_table_association.public[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[2]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[1]: Creating...[0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_iam_role.this[0]: Creating...[0m[0m
+[0m[1mmodule.vpc.aws_route_table_association.public[2]: Creation complete after 0s [id=rtbassoc-0972858bbba12e4d5][0m
+[0m[1mmodule.vpc.aws_route_table_association.public[0]: Creation complete after 0s [id=rtbassoc-08bfa528b754110e9][0m
+[0m[1mmodule.vpc.aws_route_table_association.public[1]: Creation complete after 0s [id=rtbassoc-0e6bd79185ce2b176][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_iam_role.this[0]: Creation complete after 1s [id=test-cluster-node-group-eks-node-group][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_iam_role_policy_attachment.this["AmazonEKS_CNI_Policy"]: Creating...[0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_iam_role_policy_attachment.this["AmazonEKSWorkerNodePolicy"]: Creating...[0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_iam_role_policy_attachment.this["AmazonEC2ContainerRegistryReadOnly"]: Creating...[0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_iam_role_policy_attachment.this["AmazonEKS_CNI_Policy"]: Creation complete after 0s [id=test-cluster-node-group-eks-node-group/arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_iam_role_policy_attachment.this["AmazonEKSWorkerNodePolicy"]: Creation complete after 1s [id=test-cluster-node-group-eks-node-group/arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_iam_role_policy_attachment.this["AmazonEC2ContainerRegistryReadOnly"]: Creation complete after 1s [id=test-cluster-node-group-eks-node-group/arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly][0m
+[0m[1mmodule.eks.module.kms.aws_kms_key.this[0]: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.eks.module.kms.aws_kms_key.this[0]: Creation complete after 28s [id=57623112-2819-4430-83a1-3c8404ffba63][0m
+[0m[1mmodule.eks.module.kms.aws_kms_alias.this["cluster"]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_iam_policy.cluster_encryption[0]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Creating...[0m[0m
+[0m[1mmodule.eks.module.kms.aws_kms_alias.this["cluster"]: Creation complete after 1s [id=alias/eks/test-cluster][0m
+[0m[1mmodule.eks.aws_iam_policy.cluster_encryption[0]: Creation complete after 1s [id=arn:aws:iam::985984781526:policy/test-cluster-cluster-ClusterEncryption20260319071749458100000005][0m
+[0m[1mmodule.eks.aws_iam_role_policy_attachment.cluster_encryption[0]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_iam_role_policy_attachment.cluster_encryption[0]: Creation complete after 1s [id=test-cluster-cluster-20260319071719767400000001/arn:aws:iam::985984781526:policy/test-cluster-cluster-ClusterEncryption20260319071749458100000005][0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [30s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [40s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [50s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [1m0s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [1m10s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [1m20s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [1m30s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [1m40s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [1m50s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [2m0s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [2m10s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [2m20s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [2m30s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [2m40s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [2m50s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [3m0s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [3m10s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [3m20s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [3m30s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [3m40s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [3m50s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [4m0s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [4m10s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [4m20s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [4m31s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [4m41s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [4m51s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [5m1s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [5m11s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [5m21s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [5m31s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [5m41s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [5m51s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [6m1s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [6m11s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [6m21s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [6m31s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [6m41s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [6m51s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [7m1s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [7m11s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [7m21s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [7m31s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [7m41s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [7m51s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [8m1s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [8m11s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [8m21s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [8m31s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [8m41s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Still creating... [8m51s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_cluster.this[0]: Creation complete after 8m54s [id=test-cluster][0m
+[0m[1mmodule.eks.data.aws_eks_addon_version.this["coredns"]: Reading...[0m[0m
+[0m[1mmodule.eks.data.aws_eks_addon_version.this["kube-proxy"]: Reading...[0m[0m
+[0m[1mmodule.eks.data.aws_eks_addon_version.this["vpc-cni"]: Reading...[0m[0m
+[0m[1mmodule.eks.aws_ec2_tag.cluster_primary_security_group["Terraform"]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_ec2_tag.cluster_primary_security_group["Environment"]: Creating...[0m[0m
+[0m[1mmodule.eks.data.tls_certificate.this[0]: Reading...[0m[0m
+[0m[1mmodule.eks.aws_eks_access_entry.this["cluster_creator"]: Creating...[0m[0m
+[0m[1mmodule.eks.time_sleep.this[0]: Creating...[0m[0m
+[0m[1mmodule.eks.data.tls_certificate.this[0]: Read complete after 0s [id=db89cecc3adb9ea30f9819b0e895f1b1184c090f][0m
+[0m[1mmodule.eks.aws_iam_openid_connect_provider.oidc_provider[0]: Creating...[0m[0m
+[0m[1mmodule.eks.data.aws_eks_addon_version.this["kube-proxy"]: Read complete after 0s [id=kube-proxy][0m
+[0m[1mmodule.eks.data.aws_eks_addon_version.this["vpc-cni"]: Read complete after 0s [id=vpc-cni][0m
+[0m[1mmodule.eks.data.aws_eks_addon_version.this["coredns"]: Read complete after 0s [id=coredns][0m
+[0m[1mmodule.eks.aws_eks_addon.before_compute["vpc-cni"]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_ec2_tag.cluster_primary_security_group["Environment"]: Creation complete after 0s [id=sg-090cd80f5b3e33154,Environment][0m
+[0m[1mmodule.eks.aws_ec2_tag.cluster_primary_security_group["Terraform"]: Creation complete after 0s [id=sg-090cd80f5b3e33154,Terraform][0m
+[0m[1mmodule.eks.aws_eks_access_entry.this["cluster_creator"]: Creation complete after 1s [id=test-cluster:arn:aws:iam::985984781526:role/EKSAdminRole][0m
+[0m[1mmodule.eks.aws_eks_access_policy_association.this["cluster_creator_admin"]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_iam_openid_connect_provider.oidc_provider[0]: Creation complete after 1s [id=arn:aws:iam::985984781526:oidc-provider/oidc.eks.ap-northeast-2.amazonaws.com/id/FBA093A3C31FF0415FB695705538D690][0m
+[0m[1mmodule.eks.aws_eks_access_policy_association.this["cluster_creator_admin"]: Creation complete after 0s [id=test-cluster#arn:aws:iam::985984781526:role/EKSAdminRole#arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy][0m
+[0m[1mmodule.eks.time_sleep.this[0]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_addon.before_compute["vpc-cni"]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_addon.before_compute["vpc-cni"]: Creation complete after 14s [id=test-cluster:vpc-cni][0m
+[0m[1mmodule.eks.time_sleep.this[0]: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.eks.time_sleep.this[0]: Still creating... [30s elapsed][0m[0m
+[0m[1mmodule.eks.time_sleep.this[0]: Creation complete after 30s [id=2026-03-19T07:27:12Z][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].module.user_data.null_resource.validate_cluster_service_cidr: Creating...[0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].module.user_data.null_resource.validate_cluster_service_cidr: Creation complete after 0s [id=205520335438363367][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_launch_template.this[0]: Creating...[0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_launch_template.this[0]: Creation complete after 6s [id=lt-0db01c1832160aaec][0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Creating...[0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [30s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [40s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [50s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [1m0s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [1m10s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [1m20s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [1m30s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [1m40s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [1m50s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [2m0s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Still creating... [2m10s elapsed][0m[0m
+[0m[1mmodule.eks.module.eks_managed_node_group["default"].aws_eks_node_group.this[0]: Creation complete after 2m19s [id=test-cluster:test-cluster-node-group][0m
+[0m[1mmodule.eks.aws_eks_addon.this["kube-proxy"]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_eks_addon.this["coredns"]: Creating...[0m[0m
+[0m[1mmodule.eks.aws_eks_addon.this["kube-proxy"]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_addon.this["coredns"]: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_addon.this["coredns"]: Creation complete after 14s [id=test-cluster:coredns][0m
+[0m[1mmodule.eks.aws_eks_addon.this["kube-proxy"]: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.eks.aws_eks_addon.this["kube-proxy"]: Creation complete after 24s [id=test-cluster:kube-proxy][0m
+[0m[1m[32m
+Apply complete! Resources: 52 added, 0 changed, 0 destroyed.
+[0m

@@ -14,7 +14,7 @@ variable "ssh_access_cidr" {
 variable "ClusterBaseName" {
   description = "Base name of the cluster."
   type        = string
-  default     = "myeks"
+  default     = "test-cluster"
 }
 
 variable "KubernetesVersion" {
@@ -38,7 +38,7 @@ variable "WorkerNodeCount" {
 variable "WorkerNodeVolumesize" {
   description = "Volume size for worker nodes (in GiB)."
   type        = number
-  default     = 30
+  default     = 20
 }
 
 variable "TargetRegion" {

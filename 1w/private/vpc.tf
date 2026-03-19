@@ -33,6 +33,6 @@ module "vpc" {
   }
 
   tags = {
-    "Environment" = "cloudneta-lab"
+    "Environment" = "test-cluster"
   }
 }
