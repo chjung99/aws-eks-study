@@ -18,7 +18,7 @@ resource "aws_security_group" "node_group_sg" {
   }
 }
 
-# 보안 그룹 규칙: 특정 IP에서 EKS 워커 노드로 SSH(22번 포트) 접속 허용
+# 보안 그룹 규칙: 특정 IP에서 EKS 워커 노드로 모든 트래픽 접속 허용
 resource "aws_security_group_rule" "allow_ssh" {
   type        = "ingress"
   from_port         = 0
