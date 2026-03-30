@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clb-test-nginx
+  labels:
+    app: clb-test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: clb-test
+  template:
+    metadata:
+      labels:
+        app: clb-test
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clb-test-service
+  # 별도의 annotation을 넣지 않으면 기본적으로 CLB가 생성됩니다.
+spec:
+  type: LoadBalancer
+  selector:
+    app: clb-test
+  ports:
+    - protocol: TCP
+      port: 80        # 로드밸런서가 받는 포트
+      targetPort: 80  # Pod로 전달되는 포트
+
+
+
+      ANPA6LEKFZTLNUOZQJAUW
