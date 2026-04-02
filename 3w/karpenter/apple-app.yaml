@@ -1,0 +1,64 @@
+# 1. Deployment: 실제 애플리케이션 포드 2개를 띄웁니다.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apple-app
+  namespace: apple-prd # 기존 네임스페이스 유지 (필요시 default로 변경)
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: apple
+  template:
+    metadata:
+      labels:
+        app: apple
+    spec:
+      containers:
+      - name: apple-app
+        image: hashicorp/http-echo
+        args:
+          - "-text=apple" # 접속 시 "apple"이라는 글자를 응답함
+        ports:
+        - containerPort: 5678
+
+---
+
+# 2. Service: 포드들을 하나로 묶어주는 내부 주소(ClusterIP)를 만듭니다.
+apiVersion: v1
+kind: Service
+metadata:
+  name: apple-service
+  namespace: apple-prd
+spec:
+  ports:
+    - port: 80
+      targetPort: 5678
+  selector:
+    app: apple
+  type: ClusterIP # Ingress를 쓸 때는 내부용인 ClusterIP면 충분합니다.
+
+---
+
+# 3. Ingress: 외부에서 들어오는 규칙을 정의합니다.
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: apple-ingress
+  namespace: apple-prd
+  annotations:
+    # Nginx Ingress Controller 전용 설정들
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx-443 # 사용자님의 환경에 설정된 클래스 이름 사용
+  rules:
+  - host: apple.test-fruit.com # 실습용 도메인 (임의 지정)
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: apple-service
+            port:
+              number: 80
