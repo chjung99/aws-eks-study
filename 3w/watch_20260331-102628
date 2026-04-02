@@ -1,0 +1,30 @@
+NAME                              READY   STATUS    RESTARTS   AGE                                             
+pod/php-apache-7ff755b4cb-tfqx6   1/1     Running   0          115s                                            
+                                                                                                               
+NAME                          CPU(cores)   MEMORY(bytes)                                                       
+php-apache-7ff755b4cb-tfqx6   1m           9Mi                                                                 
+                                                                                                               
+NAME                                                CPU(cores)   CPU(%)   MEMORY(bytes)   MEMORY(%)            
+ip-192-168-14-242.ap-northeast-2.compute.internal   103m         5%       2258Mi          68%                  
+ip-192-168-20-165.ap-northeast-2.compute.internal   121m         6%       1666Mi          50%                  
+                                                                                                               
+                                                                                                               
+                                                                                                               
+                                                                                                               
+                                                                                                               
+                                                                                                               
+                                                                                                               
+                                                                                                               
+                                                                                                               
+                                                                                                               
+                                                                                                               
+                                                                                                               
+                                                                                                               
+                                                                                                               
+                                                                                                               
+                                                                                                               
+                                                                                                               
+                                                                                                               
+                                                                                                               
+                                                                                                               
+                                                                                                               
