@@ -297,7 +297,7 @@ module "eks" {
   }
 
   tags = {
-    Environment = "cloudneta-lab"
+    owner = "skax-11624"
     Terraform   = "true"
   }
 

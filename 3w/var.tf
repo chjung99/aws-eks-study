@@ -14,7 +14,7 @@
 variable "ClusterBaseName" {
   description = "Base name of the cluster."
   type        = string
-  default     = "myeks"
+  default     = "testeks"
 }
 
 variable "KubernetesVersion" {

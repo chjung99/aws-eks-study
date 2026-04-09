@@ -45,6 +45,6 @@ module "vpc" {
   }
 
   tags = {
-    "Environment" = "cloudneta-lab"
+    "owner" = "skax-11624"
   }
 }
